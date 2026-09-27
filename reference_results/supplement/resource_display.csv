@@ -1,0 +1,5 @@
+dataset,seed,preprocessing,teacher_train,teacher_val,partition,slice_select,evaluation,base_train,learning,calibration,development,pool_train,pool_validation,source_rows,used_rows,feature_dimension,outcome_dimension,nonfinite_x,nonfinite_y,selector_threshold_true_labels,extra_supervised_training_labels
+SGEMM,0,500,8000,2000,1500,1500,13500,1000,250,250,500,15000,5000,241600,50000,14,4,0,0,750,750
+Transcoding,0,687,11005,2751,2063,2063,18576,1375,343,344,688,20635,6878,68784,68784,23,2,0,0,1031,1031
+bike,0,173,2780,695,521,521,4696,347,86,87,174,5213,1738,17379,17379,13,1,0,0,260,260
+diamond,0,539,8630,2157,1618,1618,14567,1078,269,270,539,16182,5394,53940,53940,23,1,0,0,808,808

@@ -1,0 +1,31 @@
+{
+  "version": 5,
+  "threads": 1,
+  "name": "mechanism_2x2",
+  "experiment": "mechanism_2x2",
+  "output_root": "outputs/mechanism_2x2",
+  "expected_tasks": 130,
+  "fixed": {
+    "tau": 0.9,
+    "n": 400,
+    "N": 1600,
+    "m": 400,
+    "heterogeneity": 0.35,
+    "coupling": 0.75,
+    "quadratic": 0.9,
+    "synthetic_bias": 0.5,
+    "population_mc": 30000,
+    "lambda_grid": [0.0, 0.125, 0.25, 0.375, 0.5, 0.75, 1.0, 1.25],
+    "gate_rate": 1.0
+  },
+  "grid": {
+    "mechanism": [
+      "well_independent",
+      "well_coupled",
+      "misspecified_independent",
+      "misspecified_coupled",
+      "certified_exact_independent"
+    ],
+    "seed": {"range": [0, 26]}
+  }
+}

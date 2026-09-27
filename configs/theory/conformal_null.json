@@ -1,0 +1,16 @@
+{
+  "version": 5,
+  "threads": 1,
+  "name": "conformal_null",
+  "experiment": "conformal_null",
+  "output_root": "outputs/conformal_null",
+  "expected_tasks": 24,
+  "fixed": {
+    "n_mc": 30000,
+    "kappa": 0.25
+  },
+  "grid": {
+    "strength": [0.5, 1.0, 1.5],
+    "seed": {"range": [0, 8]}
+  }
+}

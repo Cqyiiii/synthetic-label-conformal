@@ -1,0 +1,8 @@
+method,datasets_with_lower_msce30,datasets_with_msce30_ci_below_zero,datasets_with_lower_msce10,datasets_with_higher_wsc,datasets_with_wsc_ci_above_zero
+SPPI,0,0,0,0,0
+NNM,4,0,4,5,0
+CQR-PPI,7,7,7,7,5
+RCP-PTFT,8,7,8,8,5
+RCP-PPI,7,6,7,8,7
+RCP-PPI-CV,7,6,7,8,7
+RCP-Aug,8,7,7,8,7

@@ -1,0 +1,377 @@
+{
+  "artifact": "synthetic-conformal",
+  "version": "1.0.0",
+  "recorded_at_utc": "2026-09-27T03:44:47+00:00",
+  "status": "automated_checks_passed",
+  "verification_scope": "Code and data release validation; not a fresh execution of the full benchmark or an independent scientific replication.",
+  "environment": {
+    "python": "3.11.13",
+    "system": "Darwin",
+    "machine": "x86_64",
+    "packages": {
+      "numpy": "1.26.4",
+      "scipy": "1.16.0",
+      "pandas": "2.3.3",
+      "torch": "2.2.2",
+      "scikit-learn": "1.8.0",
+      "matplotlib": "3.10.0",
+      "pytest": "8.4.2",
+      "pyarrow": "23.0.1",
+      "threadpoolctl": "3.6.0",
+      "setuptools": "78.1.1",
+      "wheel": "0.45.1"
+    }
+  },
+  "unit_and_regression_tests": {
+    "command": "conda run -n ml python -m pytest -q",
+    "passed": 17,
+    "failed": 0,
+    "seconds": 28.29,
+    "earlier_baseline_run": {
+      "passed": 17,
+      "failed": 0,
+      "seconds": 39.8
+    }
+  },
+  "plan_validation": {
+    "command": "conda run -n ml python run.py plan",
+    "benchmark_tasks": 740,
+    "main_tasks": 240,
+    "theory_tasks": 260,
+    "followup_tasks": 270,
+    "supplement_tabular_tasks": 60,
+    "benchmark_suite_tasks": {
+      "main": 240,
+      "teacher_quality": 160,
+      "pool_size": 160,
+      "label_budget": 80,
+      "ablations": 100
+    }
+  },
+  "reference_validation": {
+    "command": "conda run -n ml python run.py check-results",
+    "status": "PASS",
+    "benchmark_tasks": 740,
+    "benchmark_method_rows": 6900,
+    "followup_method_rows": 540,
+    "supplement_tasks": 60,
+    "supplement_method_rows": 420,
+    "supplement_helpsteer_rows": 60,
+    "statistical_settings": 32,
+    "helpsteer_cached_features": [
+      2839,
+      768
+    ]
+  },
+  "source_preservation": {
+    "comparison_baseline": "The research artifact supplied by the authors for this public release.",
+    "comparison_method": "Direct byte comparison; no exhaustive cryptographic manifest.",
+    "protected_files_compared": 194,
+    "python_files_compared": 101,
+    "scope": [
+      "All Python source",
+      "frozen configurations and task plans",
+      "reference numerical results",
+      "HelpSteer numerical caches"
+    ],
+    "differences": 0,
+    "release_changes": [
+      "Public documentation and package metadata",
+      "MIT code license and citation metadata",
+      "Dataset attribution and retained upstream license notice",
+      "Eight tabular input files added without value or row-order changes"
+    ]
+  },
+  "tabular_data_validation": {
+    "command": "conda run -n ml python tools/prepare_tabular_data.py --from-local legacy/Datasets",
+    "additional_checks": [
+      "Byte equality with provided local data",
+      "Loading all inputs through synrcp.real_data._read_dataset",
+      "Finite covariates and responses",
+      "Expected row counts and ordered schemas",
+      "Git inclusion"
+    ],
+    "file_count": 8,
+    "total_rows": 487676,
+    "files": [
+      {
+        "file": "legacy/Datasets/bike_hour.csv",
+        "rows": 17379,
+        "raw_columns": 17,
+        "bytes": 1144308,
+        "x_shape": [
+          17379,
+          13
+        ],
+        "y_shape": [
+          17379,
+          1
+        ],
+        "nonfinite_x": 0,
+        "nonfinite_y": 0,
+        "original_bytes_and_row_order_preserved": true,
+        "git_included": true
+      },
+      {
+        "file": "legacy/Datasets/diamonds.csv",
+        "rows": 53940,
+        "raw_columns": 10,
+        "bytes": 2571905,
+        "x_shape": [
+          53940,
+          23
+        ],
+        "y_shape": [
+          53940,
+          1
+        ],
+        "nonfinite_x": 0,
+        "nonfinite_y": 0,
+        "original_bytes_and_row_order_preserved": true,
+        "git_included": true
+      },
+      {
+        "file": "legacy/Datasets/gt_full.csv",
+        "rows": 36733,
+        "raw_columns": 12,
+        "bytes": 3061424,
+        "x_shape": [
+          36733,
+          9
+        ],
+        "y_shape": [
+          36733,
+          2
+        ],
+        "nonfinite_x": 0,
+        "nonfinite_y": 0,
+        "original_bytes_and_row_order_preserved": true,
+        "git_included": true
+      },
+      {
+        "file": "legacy/Datasets/naval.csv",
+        "rows": 11934,
+        "raw_columns": 18,
+        "bytes": 1465732,
+        "x_shape": [
+          11934,
+          16
+        ],
+        "y_shape": [
+          11934,
+          2
+        ],
+        "nonfinite_x": 0,
+        "nonfinite_y": 0,
+        "original_bytes_and_row_order_preserved": true,
+        "git_included": true
+      },
+      {
+        "file": "legacy/Datasets/sgemm_product.csv",
+        "rows": 241600,
+        "raw_columns": 18,
+        "bytes": 14353701,
+        "x_shape": [
+          241600,
+          14
+        ],
+        "y_shape": [
+          241600,
+          4
+        ],
+        "nonfinite_x": 0,
+        "nonfinite_y": 0,
+        "original_bytes_and_row_order_preserved": true,
+        "git_included": true
+      },
+      {
+        "file": "legacy/Datasets/super.csv",
+        "rows": 21263,
+        "raw_columns": 82,
+        "bytes": 23859780,
+        "x_shape": [
+          21263,
+          81
+        ],
+        "y_shape": [
+          21263,
+          1
+        ],
+        "nonfinite_x": 0,
+        "nonfinite_y": 0,
+        "original_bytes_and_row_order_preserved": true,
+        "git_included": true
+      },
+      {
+        "file": "legacy/Datasets/transcoding_measurement.tsv",
+        "rows": 68784,
+        "raw_columns": 22,
+        "bytes": 8918656,
+        "x_shape": [
+          68784,
+          23
+        ],
+        "y_shape": [
+          68784,
+          2
+        ],
+        "nonfinite_x": 0,
+        "nonfinite_y": 0,
+        "original_bytes_and_row_order_preserved": true,
+        "git_included": true
+      },
+      {
+        "file": "legacy/Datasets/WEC_Perth_49.csv",
+        "rows": 36043,
+        "raw_columns": 149,
+        "bytes": 33660212,
+        "x_shape": [
+          36043,
+          98
+        ],
+        "y_shape": [
+          36043,
+          49
+        ],
+        "nonfinite_x": 0,
+        "nonfinite_y": 0,
+        "original_bytes_and_row_order_preserved": true,
+        "git_included": true
+      }
+    ]
+  },
+  "diamonds_provenance_check": {
+    "upstream": "https://github.com/tidyverse/ggplot2",
+    "revision": "313d0901d955a304ae09b36c13946933b8909eaf",
+    "source": "data/diamonds.rda",
+    "license_notice": "licenses/ggplot2-MIT.txt",
+    "comparison": "53,940 rows; exact numeric and categorical value equality, with identical column order and row order. No deduplication.",
+    "result": "PASS"
+  },
+  "helpsteer_cache_validation": {
+    "rows": 21352,
+    "columns": [
+      "row_id",
+      "helpfulness",
+      "correctness",
+      "coherence",
+      "complexity",
+      "verbosity",
+      "official_split",
+      "prompt_key",
+      "role",
+      "prompt_chars",
+      "response_chars"
+    ],
+    "role_counts": {
+      "pool": 18513,
+      "test": 1038,
+      "base_train": 801,
+      "conformal": 500,
+      "pilot": 500
+    },
+    "embedding_shape": [
+      2839,
+      768
+    ],
+    "embedding_dtype": "float32",
+    "pilot_prediction_rows": 500,
+    "labels": {
+      "flash": {
+        "rows": 500,
+        "status_counts": {
+          "ok": 500
+        },
+        "ratings_match_prediction_cache": true,
+        "requested_models": [
+          "deepseek-v4-flash"
+        ],
+        "served_models": [
+          "deepseek-v4-flash"
+        ]
+      },
+      "pro": {
+        "rows": 500,
+        "status_counts": {
+          "ok": 500
+        },
+        "ratings_match_prediction_cache": true,
+        "requested_models": [
+          "deepseek-v4-pro"
+        ],
+        "served_models": [
+          "deepseek-v4-pro"
+        ]
+      }
+    },
+    "unique_row_ids": true,
+    "cached_joins_consistent": true,
+    "prompt_keys_spanning_outer_roles": 0,
+    "raw_text_and_provider_request_identifiers_absent_from_cache_schemas": true
+  },
+  "packaging": {
+    "command": "conda run -n ml python -m pip wheel --no-deps --no-build-isolation --wheel-dir <temporary-output> .",
+    "wheel_build": "PASS",
+    "wheel": "synthetic_conformal-1.0.0-py3-none-any.whl",
+    "distribution_scope": "Git repository for full code, data and launcher; wheel validates the two source packages and console-entry-point metadata.",
+    "fresh_full_environment_install": "not performed"
+  },
+  "publication_checks": {
+    "data_files_ignored_by_git": 0,
+    "files_exceeding_100_MiB": 0,
+    "largest_file": {
+      "file": "legacy/Datasets/WEC_Perth_49.csv",
+      "bytes": 33660212
+    },
+    "credential_or_private_path_pattern_findings": 0,
+    "configured_secret_value_scan": "No matches in Git-included candidate files; values are never recorded.",
+    "cache_schemas": "No raw text or provider request/response identifiers; array loading uses allow_pickle=False.",
+    "scope_note": "Signature and schema checks cannot prove absence of all possible secret formats. Runtime logs, caches, build directories, and environment files are excluded."
+  },
+  "independent_review": {
+    "status": "PASS",
+    "scope": "Independent static review of source preservation, supported quickstart, data inclusion, licensing notices, private metadata and release claims, followed by a check of the generated verification JSON and standalone HTML.",
+    "summary": "No material publishing blockers found; all protected scientific files match the supplied artifact, all eight datasets are included, and plan/reference validators pass.",
+    "material_findings": 0,
+    "full_experiment_rerun": false
+  },
+  "execution_notes": [
+    "All recorded check commands completed successfully.",
+    "Restricted macOS CPU-capability probes produced nonfatal PyArrow warnings during data/reference checks.",
+    "The wheel build reported an unwritable pip cache and continued without using that cache.",
+    "No research design was retuned; only release checks and the existing tests were run. The tests include small mathematical/neural regression checks.",
+    "No fresh model rollout, LLM label, encoder feature, model-weight download, GPU run or complete benchmark execution was performed."
+  ],
+  "scientific_limits": [
+    "The supplied new coverage selectors do not consistently outperform fixed unit PPI; adverse and null results remain included.",
+    "Random splits overlap. Paired bootstrap intervals are unadjusted and describe split variation, not independent population sampling.",
+    "Diamonds retains 146 exact duplicate full records and 345 duplicate X rows; row separation is not entity independence.",
+    "HelpSteer responses are clustered by prompt. Prompt separation of outer roles does not establish row-iid conformal validity.",
+    "Historical HelpSteer neural fits and the recorded CPU reconstruction are not numerically identical.",
+    "Civil Comments is historical source only; its input and label caches are not part of this release.",
+    "Historical generation/report scripts may require their original full-text layout and optional dependencies. run.py is the supported supplied-cache entry point."
+  ],
+  "handoff": {
+    "study_identity": "How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage",
+    "release_identity": "synthetic-conformal 1.0.0",
+    "status": "automated_release_checks_passed",
+    "frozen_claim": "The provided scientific implementation, designs, reference results and cached numerical inputs are preserved in the public release.",
+    "key_counts": {
+      "python_files_preserved": 101,
+      "tabular_datasets": 8,
+      "tabular_rows": 487676,
+      "tests_passed": 17,
+      "benchmark_tasks": 740,
+      "benchmark_method_rows": 6900,
+      "helpsteer_feature_rows": 2839,
+      "helpsteer_feature_dimensions": 768
+    },
+    "outcome_access": "Only bundled numerical reference outcomes and release-check outputs were inspected. No new research outcome was generated.",
+    "major_limitations": [
+      "No full benchmark rerun",
+      "Retained duplicate and prompt-clustering limitations",
+      "Historical neural reconstruction differs numerically"
+    ],
+    "next_authorized_step": "Publish the reviewed code and data as a new public GitHub repository."
+  }
+}

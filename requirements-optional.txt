@@ -1,0 +1,9 @@
+# Optional historical data generation and notebook/legacy analysis only.
+# No optional dependency is needed for the main engine or cached-label supplement.
+datasets>=2.18
+openai>=1.0
+sentence-transformers==3.4.1
+nbformat>=5.10
+nbconvert>=7
+ipython>=8
+seaborn>=0.13

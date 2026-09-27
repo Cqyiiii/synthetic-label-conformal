@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Synthetic Conformal — Release Validation</title>
+<style>
+:root{color-scheme:light;--ink:#142b35;--muted:#526771;--line:#dbe5e7;--accent:#006b66;--wash:#f0f6f6}
+*{box-sizing:border-box}body{margin:0;background:#f8faf9;color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:1080px;margin:auto;padding:48px 30px 70px}header{border-top:5px solid var(--accent);padding:28px 0 22px}.eyebrow{color:var(--accent);font-size:13px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:16px 0}h2{font-size:23px;margin:34px 0 12px;line-height:1.3}p{margin:12px 0}.subtle{color:var(--muted)}.note{border-left:4px solid var(--accent);background:var(--wash);padding:16px 20px;margin:22px 0}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}.metric{background:white;border:1px solid var(--line);padding:16px 18px;border-radius:10px}.metric b{display:block;font-size:29px;color:var(--accent)}.metric span{font-size:13px;color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:14px;background:white}th,td{padding:11px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--wash);white-space:nowrap}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px}code{overflow-wrap:anywhere}pre{background:#132c35;color:#e4f1ef;padding:20px;border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55}li{margin:7px 0}a{color:var(--accent)}summary{cursor:pointer;font-weight:650}details{margin:18px 0}footer{border-top:1px solid var(--line);margin-top:38px;padding-top:16px;font-size:13px;color:var(--muted)}
+@media(max-width:640px){main{padding:24px 16px}.metrics{grid-template-columns:repeat(2,1fr)}th,td{padding:9px}}@media print{body{background:white}main{padding:0}.table-wrap{overflow:visible}pre{background:#f0f4f4;color:#142b35}h2{break-after:avoid}tr,.metric{break-inside:avoid}}
+</style></head><body><main>
+<header><div class="eyebrow">Code and data · version 1.0.0 · 27 September 2026</div>
+<h1>Release validation</h1><p><strong>How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage</strong><br>Qianyi Chen and Bo Li · Tsinghua University</p>
+<p class="subtle">A standalone record of what was included, what was checked, and what the checks establish. All text, evidence summaries, styles and machine-readable records are embedded in this file.</p></header>
+<div class="metrics"><div class="metric"><b>17 / 17</b><span>Tests passed</span></div><div class="metric"><b>8</b><span>Tabular datasets included</span></div><div class="metric"><b>194</b><span>Scientific files preserved exactly</span></div><div class="metric"><b>6,900</b><span>Benchmark reference method rows</span></div></div>
+<div class="note"><strong>Scope: release preparation.</strong> The checks passed for the supplied code and data. This work did not rerun the complete 740-task benchmark, create new LLM labels or features, or independently confirm the paper's scientific claims. Supplied reference evidence remains distinct from newly generated run outputs.</div>
+<h2>Purpose and decision record</h2><p>The release makes the authors' research artifact available as <code>synthetic-conformal</code>, with a common launcher, the eight frozen tabular inputs, numerical HelpSteer2 caches, designs and reference tables. The authors selected MIT for their original code. Third-party datasets retain their own licenses and attribution. Public documentation and packaging metadata were updated; the scientific source, parameter grids, seed plans, cached inputs and reference results were preserved byte for byte.</p>
+<p>The supported entry point is <code>run.py</code>. Earlier baseline, labeling, notebook and evidence-building code remains inspectable, but some historical entry points require their original full-text or directory layout. The earlier Civil Comments screening study is source only and is separate from the main benchmark and HelpSteer evidence.</p>
+<h2>Executed checks</h2><div class="table-wrap"><table><thead><tr><th>Check</th><th>Observed result</th><th>Meaning</th></tr></thead><tbody><tr><td>Tests</td><td>17 passed / 0 failed</td><td>28.29 seconds; final run after public metadata changes</td></tr><tr><td>Source preservation</td><td>194 files equal</td><td>Includes 101 Python files, frozen designs, reference results and caches</td></tr><tr><td>Tabular data</td><td>8 files / 487,676 rows</td><td>Schemas, raw byte equality, loader dimensions and all finite values checked</td></tr><tr><td>HelpSteer joins</td><td>2,839 × 768 features</td><td>Unique IDs and role alignment; both 500-row synthetic label caches match predictions</td></tr><tr><td>Reference validation</td><td>PASS</td><td>740 benchmark tasks / 6,900 method rows; supplementary evidence also checked</td></tr><tr><td>Package build</td><td>PASS</td><td>Local wheel built without dependencies or build isolation</td></tr><tr><td>Publication scan</td><td>0 findings</td><td>Configured key values, credential patterns, private paths, field schemas and Git file size</td></tr><tr><td>Independent review</td><td>PASS</td><td>No material publishing blockers found; all protected scientific files match the supplied artifact, all eight datasets are included, and plan/reference validators pass.</td></tr></tbody></table></div>
+<p>The existing suite checks mathematical invariants, calibration ranks, frozen-plan structure, checkpoint behavior, and portable imports/launchers. It includes small regression fits. The release audit separately read every supplied table through the actual data loader, inspected structured cache schemas, compared protected files to the author-supplied artifact, and checked that all data files are eligible for Git inclusion.</p>
+<h2>Data inventory and provenance</h2><div class="table-wrap"><table><thead><tr><th>Included file</th><th>Rows</th><th>Raw columns</th><th>X dimensions</th><th>Y dimensions</th><th>MiB</th><th>Terms</th></tr></thead><tbody><tr><td>bike_hour.csv</td><td>17,379</td><td>17</td><td>13</td><td>1</td><td>1.09</td><td>CC BY 4.0</td></tr><tr><td>diamonds.csv</td><td>53,940</td><td>10</td><td>23</td><td>1</td><td>2.45</td><td>ggplot2 MIT</td></tr><tr><td>gt_full.csv</td><td>36,733</td><td>12</td><td>9</td><td>2</td><td>2.92</td><td>CC BY 4.0</td></tr><tr><td>naval.csv</td><td>11,934</td><td>18</td><td>16</td><td>2</td><td>1.40</td><td>CC BY 4.0</td></tr><tr><td>sgemm_product.csv</td><td>241,600</td><td>18</td><td>14</td><td>4</td><td>13.69</td><td>CC BY 4.0</td></tr><tr><td>super.csv</td><td>21,263</td><td>82</td><td>81</td><td>1</td><td>22.75</td><td>CC BY 4.0</td></tr><tr><td>transcoding_measurement.tsv</td><td>68,784</td><td>22</td><td>23</td><td>2</td><td>8.51</td><td>CC BY 4.0</td></tr><tr><td>WEC_Perth_49.csv</td><td>36,043</td><td>149</td><td>98</td><td>49</td><td>32.10</td><td>CC BY 4.0</td></tr></tbody></table></div>
+<p>All eight copied input files retain their original bytes and row order. Every loaded covariate and response is finite. SGEMM is included in full; the frozen engine selects 50,000 rows using seed 2026. Categorical encoding changes the loader dimensions relative to raw columns. Gas Turbine stores an index column that the loader drops. Diamonds has not been deduplicated.</p>
+<p>The seven UCI datasets use CC BY 4.0; permanent source records are Bike <code>10.24432/C5W894</code>, Gas Turbine <code>10.24432/C5WC95</code>, Naval <code>10.24432/C5K31K</code>, SGEMM <code>10.24432/C5MK70</code>, Superconductivity <code>10.24432/C53P47</code>, Transcoding <code>10.24432/C58C9K</code>, and WEC <code>10.24432/C5GG7Q</code>. Their individual credits and conversion notes are retained in <code>THIRD_PARTY_NOTICES.md</code>. The Diamonds CSV was compared with ggplot2's MIT-distributed <code>data/diamonds.rda</code> at revision <code>313d0901d955a304ae09b36c13946933b8909eaf</code>: all 53,940 rows, column order, categorical strings and numeric values match exactly. The upstream MIT notice is included in the repository.</p>
+<h2>HelpSteer2 caches and joins</h2><p>The processed NVIDIA HelpSteer2 input retains 21,352 rows and eleven fields: row ID, five human ratings, original split, prompt-group key, role and two text-length fields. Outer roles contain 18,513 pool rows, 801 base-training rows, 500 pilot rows, 500 conformal rows and 1,038 test rows. The downstream runner divides the conformal role into development and final-calibration subsets. Raw prompt and response text is omitted.</p>
+<p>There are 2,839 cached 768-dimensional float32 feature vectors, derived from concatenated normalized prompt and response embeddings from <code>sentence-transformers/all-MiniLM-L6-v2</code>. IDs are unique, finite feature arrays join exactly to the four relevant roles, and the stored role labels agree with the processed table. The two 500-row synthetic-rating files have successful status for every row and exactly match the prediction cache. Their recorded model identities are <code>deepseek-v4-flash</code> and <code>deepseek-v4-pro</code>. These are historical inputs; no new model service was called.</p>
+<p>Zero prompt keys span outer roles. This does not eliminate dependence among responses to a prompt or in the original paired/pool subdivision. The CC BY 4.0 source attribution is preserved. No encoder weights, raw provider response envelopes or provider request identifiers are included.</p>
+<h2>Frozen design and numerical evidence</h2><div class="table-wrap"><table><thead><tr><th>Evidence family</th><th>Recorded scope</th></tr></thead><tbody><tr><td>Main benchmark</td><td>740 tasks: main 240; teacher quality 160; pool size 160; label budget 80; ablations 100</td></tr><tr><td>Theory registry</td><td>260 tasks across the supplied theory configurations</td></tr><tr><td>Resource follow-up</td><td>270 tasks / 540 method rows</td></tr><tr><td>Selection supplement</td><td>60 tabular tasks / 420 method rows / 420 candidate and control rows</td></tr><tr><td>Supplemental HelpSteer audit</td><td>60 rows</td></tr><tr><td>Estimator simulation evidence</td><td>32 settings; supplied original design uses 100,000 repetitions per setting</td></tr></tbody></table></div>
+<p>Reference validation checks row counts, task/method uniqueness, numerical consistency, required evidence blocks and cached feature shape. These are consistency gates for the supplied tables, not new estimates of coverage, risk or treatment effects. All retained positive, adverse and null outcomes remain in the reference bundle.</p>
+<h2>Environment and execution record</h2><p>Executed with Conda environment <code>ml</code>, Python 3.11.13, macOS on x86_64. Exact observed package versions: numpy 1.26.4, scipy 1.16.0, pandas 2.3.3, torch 2.2.2, scikit-learn 1.8.0, matplotlib 3.10.0, pytest 8.4.2, pyarrow 23.0.1, threadpoolctl 3.6.0, setuptools 78.1.1, wheel 0.45.1.</p>
+<pre>conda run -n ml python -m pytest -q
+conda run -n ml python tools/prepare_tabular_data.py --from-local legacy/Datasets
+conda run -n ml python run.py plan
+conda run -n ml python run.py check-results
+conda run -n ml python -m pip wheel --no-deps --no-build-isolation --wheel-dir &lt;temporary-output&gt; .</pre>
+<p>The earlier baseline test run passed 17 tests in 39.80 seconds; the final run after metadata changes passed the same 17 tests in 28.29 seconds. The wheel build succeeded without dependency downloads. A fresh full environment installation and GPU execution were not tested. Restricted macOS CPU-capability probes produced nonfatal PyArrow warnings; an unwritable pip cache was disabled during the successful build. No failing check was silently omitted. Private preparation logs and filesystem identities are excluded from the public report.</p>
+<h2>Interpretation boundaries</h2><ul><li>The supplied new coverage selectors do not consistently outperform fixed unit PPI; adverse and null results remain included.</li><li>Random splits overlap. Paired bootstrap intervals are unadjusted and describe split variation, not independent population sampling.</li><li>Diamonds retains 146 exact duplicate full records and 345 duplicate X rows; row separation is not entity independence.</li><li>HelpSteer responses are clustered by prompt. Prompt separation of outer roles does not establish row-iid conformal validity.</li><li>Historical HelpSteer neural fits and the recorded CPU reconstruction are not numerically identical.</li><li>Civil Comments is historical source only; its input and label caches are not part of this release.</li><li>Historical generation/report scripts may require their original full-text layout and optional dependencies. run.py is the supported supplied-cache entry point.</li></ul>
+<p>In particular, paired intervals concern variation across overlapping random splits and are not multiple-comparison-adjusted. Finite grouped coverage, Fourier, WSC and ERT diagnostics do not prove pointwise conditional validity. Final HelpSteer calibration contains 400 responses from 200 prompts; the official test subset contains 1,038 responses from 518 prompts. The historical CPU reconstruction differs from archived fits by up to approximately 0.012516 raw pinball, 0.042389 coverage, 0.004600 MSCE, and 30 selected epochs. These inherited boundaries were documented rather than retuned during release preparation.</p>
+<h2>Reproducibility and artifact index</h2><div class="table-wrap"><table><thead><tr><th>Repository path</th><th>Purpose</th></tr></thead><tbody><tr><td>README.md</td><td>Installation, supported launch commands, scope and citation</td></tr><tr><td>src/synrcp/; src/synrcp_v11/</td><td>Computational engine and frozen task registry</td></tr><tr><td>configs/; plans/; supplement/config.json</td><td>Frozen configurations, seeds, method and candidate grids</td></tr><tr><td>legacy/Datasets/; docs/tabular_data.json</td><td>Eight original inputs and ordered schema catalog</td></tr><tr><td>llm/helpsteer/data/; llm/helpsteer/results/</td><td>Numerical features, human and synthetic ratings, token counts</td></tr><tr><td>reference_results/</td><td>Provided scientific outcomes, kept outside generated output directories</td></tr><tr><td>LICENSE; THIRD_PARTY_NOTICES.md; licenses/</td><td>MIT code license, dataset credits and upstream notice</td></tr><tr><td>docs/REPRODUCIBILITY.md; docs/RELEASE_SCOPE.md</td><td>Scientific limitations and supported release scope</td></tr><tr><td>docs/VERIFICATION.json; docs/release-validation.html</td><td>Machine-readable verification and this standalone report</td></tr></tbody></table></div>
+<p>After dependencies are installed, the supplied-data launcher requires no network, API credentials or model downloads. New experiment outputs must be written to their designated output directories. If changing the design, use a fresh extraction or separate output directory to avoid mixing incompatible resumable caches.</p>
+<h2>Machine-readable handoff</h2><pre id="handoff">{
+  &quot;study_identity&quot;: &quot;How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage&quot;,
+  &quot;release_identity&quot;: &quot;synthetic-conformal 1.0.0&quot;,
+  &quot;status&quot;: &quot;automated_release_checks_passed&quot;,
+  &quot;frozen_claim&quot;: &quot;The provided scientific implementation, designs, reference results and cached numerical inputs are preserved in the public release.&quot;,
+  &quot;key_counts&quot;: {
+    &quot;python_files_preserved&quot;: 101,
+    &quot;tabular_datasets&quot;: 8,
+    &quot;tabular_rows&quot;: 487676,
+    &quot;tests_passed&quot;: 17,
+    &quot;benchmark_tasks&quot;: 740,
+    &quot;benchmark_method_rows&quot;: 6900,
+    &quot;helpsteer_feature_rows&quot;: 2839,
+    &quot;helpsteer_feature_dimensions&quot;: 768
+  },
+  &quot;outcome_access&quot;: &quot;Only bundled numerical reference outcomes and release-check outputs were inspected. No new research outcome was generated.&quot;,
+  &quot;major_limitations&quot;: [
+    &quot;No full benchmark rerun&quot;,
+    &quot;Retained duplicate and prompt-clustering limitations&quot;,
+    &quot;Historical neural reconstruction differs numerically&quot;
+  ],
+  &quot;next_authorized_step&quot;: &quot;Publish the reviewed code and data as a new public GitHub repository.&quot;
+}</pre>
+<details><summary>Complete embedded verification record</summary><pre>{
+  &quot;artifact&quot;: &quot;synthetic-conformal&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;recorded_at_utc&quot;: &quot;2026-09-27T03:44:47+00:00&quot;,
+  &quot;status&quot;: &quot;automated_checks_passed&quot;,
+  &quot;verification_scope&quot;: &quot;Code and data release validation; not a fresh execution of the full benchmark or an independent scientific replication.&quot;,
+  &quot;environment&quot;: {
+    &quot;python&quot;: &quot;3.11.13&quot;,
+    &quot;system&quot;: &quot;Darwin&quot;,
+    &quot;machine&quot;: &quot;x86_64&quot;,
+    &quot;packages&quot;: {
+      &quot;numpy&quot;: &quot;1.26.4&quot;,
+      &quot;scipy&quot;: &quot;1.16.0&quot;,
+      &quot;pandas&quot;: &quot;2.3.3&quot;,
+      &quot;torch&quot;: &quot;2.2.2&quot;,
+      &quot;scikit-learn&quot;: &quot;1.8.0&quot;,
+      &quot;matplotlib&quot;: &quot;3.10.0&quot;,
+      &quot;pytest&quot;: &quot;8.4.2&quot;,
+      &quot;pyarrow&quot;: &quot;23.0.1&quot;,
+      &quot;threadpoolctl&quot;: &quot;3.6.0&quot;,
+      &quot;setuptools&quot;: &quot;78.1.1&quot;,
+      &quot;wheel&quot;: &quot;0.45.1&quot;
+    }
+  },
+  &quot;unit_and_regression_tests&quot;: {
+    &quot;command&quot;: &quot;conda run -n ml python -m pytest -q&quot;,
+    &quot;passed&quot;: 17,
+    &quot;failed&quot;: 0,
+    &quot;seconds&quot;: 28.29,
+    &quot;earlier_baseline_run&quot;: {
+      &quot;passed&quot;: 17,
+      &quot;failed&quot;: 0,
+      &quot;seconds&quot;: 39.8
+    }
+  },
+  &quot;plan_validation&quot;: {
+    &quot;command&quot;: &quot;conda run -n ml python run.py plan&quot;,
+    &quot;benchmark_tasks&quot;: 740,
+    &quot;main_tasks&quot;: 240,
+    &quot;theory_tasks&quot;: 260,
+    &quot;followup_tasks&quot;: 270,
+    &quot;supplement_tabular_tasks&quot;: 60,
+    &quot;benchmark_suite_tasks&quot;: {
+      &quot;main&quot;: 240,
+      &quot;teacher_quality&quot;: 160,
+      &quot;pool_size&quot;: 160,
+      &quot;label_budget&quot;: 80,
+      &quot;ablations&quot;: 100
+    }
+  },
+  &quot;reference_validation&quot;: {
+    &quot;command&quot;: &quot;conda run -n ml python run.py check-results&quot;,
+    &quot;status&quot;: &quot;PASS&quot;,
+    &quot;benchmark_tasks&quot;: 740,
+    &quot;benchmark_method_rows&quot;: 6900,
+    &quot;followup_method_rows&quot;: 540,
+    &quot;supplement_tasks&quot;: 60,
+    &quot;supplement_method_rows&quot;: 420,
+    &quot;supplement_helpsteer_rows&quot;: 60,
+    &quot;statistical_settings&quot;: 32,
+    &quot;helpsteer_cached_features&quot;: [
+      2839,
+      768
+    ]
+  },
+  &quot;source_preservation&quot;: {
+    &quot;comparison_baseline&quot;: &quot;The research artifact supplied by the authors for this public release.&quot;,
+    &quot;comparison_method&quot;: &quot;Direct byte comparison; no exhaustive cryptographic manifest.&quot;,
+    &quot;protected_files_compared&quot;: 194,
+    &quot;python_files_compared&quot;: 101,
+    &quot;scope&quot;: [
+      &quot;All Python source&quot;,
+      &quot;frozen configurations and task plans&quot;,
+      &quot;reference numerical results&quot;,
+      &quot;HelpSteer numerical caches&quot;
+    ],
+    &quot;differences&quot;: 0,
+    &quot;release_changes&quot;: [
+      &quot;Public documentation and package metadata&quot;,
+      &quot;MIT code license and citation metadata&quot;,
+      &quot;Dataset attribution and retained upstream license notice&quot;,
+      &quot;Eight tabular input files added without value or row-order changes&quot;
+    ]
+  },
+  &quot;tabular_data_validation&quot;: {
+    &quot;command&quot;: &quot;conda run -n ml python tools/prepare_tabular_data.py --from-local legacy/Datasets&quot;,
+    &quot;additional_checks&quot;: [
+      &quot;Byte equality with provided local data&quot;,
+      &quot;Loading all inputs through synrcp.real_data._read_dataset&quot;,
+      &quot;Finite covariates and responses&quot;,
+      &quot;Expected row counts and ordered schemas&quot;,
+      &quot;Git inclusion&quot;
+    ],
+    &quot;file_count&quot;: 8,
+    &quot;total_rows&quot;: 487676,
+    &quot;files&quot;: [
+      {
+        &quot;file&quot;: &quot;legacy/Datasets/bike_hour.csv&quot;,
+        &quot;rows&quot;: 17379,
+        &quot;raw_columns&quot;: 17,
+        &quot;bytes&quot;: 1144308,
+        &quot;x_shape&quot;: [
+          17379,
+          13
+        ],
+        &quot;y_shape&quot;: [
+          17379,
+          1
+        ],
+        &quot;nonfinite_x&quot;: 0,
+        &quot;nonfinite_y&quot;: 0,
+        &quot;original_bytes_and_row_order_preserved&quot;: true,
+        &quot;git_included&quot;: true
+      },
+      {
+        &quot;file&quot;: &quot;legacy/Datasets/diamonds.csv&quot;,
+        &quot;rows&quot;: 53940,
+        &quot;raw_columns&quot;: 10,
+        &quot;bytes&quot;: 2571905,
+        &quot;x_shape&quot;: [
+          53940,
+          23
+        ],
+        &quot;y_shape&quot;: [
+          53940,
+          1
+        ],
+        &quot;nonfinite_x&quot;: 0,
+        &quot;nonfinite_y&quot;: 0,
+        &quot;original_bytes_and_row_order_preserved&quot;: true,
+        &quot;git_included&quot;: true
+      },
+      {
+        &quot;file&quot;: &quot;legacy/Datasets/gt_full.csv&quot;,
+        &quot;rows&quot;: 36733,
+        &quot;raw_columns&quot;: 12,
+        &quot;bytes&quot;: 3061424,
+        &quot;x_shape&quot;: [
+          36733,
+          9
+        ],
+        &quot;y_shape&quot;: [
+          36733,
+          2
+        ],
+        &quot;nonfinite_x&quot;: 0,
+        &quot;nonfinite_y&quot;: 0,
+        &quot;original_bytes_and_row_order_preserved&quot;: true,
+        &quot;git_included&quot;: true
+      },
+      {
+        &quot;file&quot;: &quot;legacy/Datasets/naval.csv&quot;,
+        &quot;rows&quot;: 11934,
+        &quot;raw_columns&quot;: 18,
+        &quot;bytes&quot;: 1465732,
+        &quot;x_shape&quot;: [
+          11934,
+          16
+        ],
+        &quot;y_shape&quot;: [
+          11934,
+          2
+        ],
+        &quot;nonfinite_x&quot;: 0,
+        &quot;nonfinite_y&quot;: 0,
+        &quot;original_bytes_and_row_order_preserved&quot;: true,
+        &quot;git_included&quot;: true
+      },
+      {
+        &quot;file&quot;: &quot;legacy/Datasets/sgemm_product.csv&quot;,
+        &quot;rows&quot;: 241600,
+        &quot;raw_columns&quot;: 18,
+        &quot;bytes&quot;: 14353701,
+        &quot;x_shape&quot;: [
+          241600,
+          14
+        ],
+        &quot;y_shape&quot;: [
+          241600,
+          4
+        ],
+        &quot;nonfinite_x&quot;: 0,
+        &quot;nonfinite_y&quot;: 0,
+        &quot;original_bytes_and_row_order_preserved&quot;: true,
+        &quot;git_included&quot;: true
+      },
+      {
+        &quot;file&quot;: &quot;legacy/Datasets/super.csv&quot;,
+        &quot;rows&quot;: 21263,
+        &quot;raw_columns&quot;: 82,
+        &quot;bytes&quot;: 23859780,
+        &quot;x_shape&quot;: [
+          21263,
+          81
+        ],
+        &quot;y_shape&quot;: [
+          21263,
+          1
+        ],
+        &quot;nonfinite_x&quot;: 0,
+        &quot;nonfinite_y&quot;: 0,
+        &quot;original_bytes_and_row_order_preserved&quot;: true,
+        &quot;git_included&quot;: true
+      },
+      {
+        &quot;file&quot;: &quot;legacy/Datasets/transcoding_measurement.tsv&quot;,
+        &quot;rows&quot;: 68784,
+        &quot;raw_columns&quot;: 22,
+        &quot;bytes&quot;: 8918656,
+        &quot;x_shape&quot;: [
+          68784,
+          23
+        ],
+        &quot;y_shape&quot;: [
+          68784,
+          2
+        ],
+        &quot;nonfinite_x&quot;: 0,
+        &quot;nonfinite_y&quot;: 0,
+        &quot;original_bytes_and_row_order_preserved&quot;: true,
+        &quot;git_included&quot;: true
+      },
+      {
+        &quot;file&quot;: &quot;legacy/Datasets/WEC_Perth_49.csv&quot;,
+        &quot;rows&quot;: 36043,
+        &quot;raw_columns&quot;: 149,
+        &quot;bytes&quot;: 33660212,
+        &quot;x_shape&quot;: [
+          36043,
+          98
+        ],
+        &quot;y_shape&quot;: [
+          36043,
+          49
+        ],
+        &quot;nonfinite_x&quot;: 0,
+        &quot;nonfinite_y&quot;: 0,
+        &quot;original_bytes_and_row_order_preserved&quot;: true,
+        &quot;git_included&quot;: true
+      }
+    ]
+  },
+  &quot;diamonds_provenance_check&quot;: {
+    &quot;upstream&quot;: &quot;https://github.com/tidyverse/ggplot2&quot;,
+    &quot;revision&quot;: &quot;313d0901d955a304ae09b36c13946933b8909eaf&quot;,
+    &quot;source&quot;: &quot;data/diamonds.rda&quot;,
+    &quot;license_notice&quot;: &quot;licenses/ggplot2-MIT.txt&quot;,
+    &quot;comparison&quot;: &quot;53,940 rows; exact numeric and categorical value equality, with identical column order and row order. No deduplication.&quot;,
+    &quot;result&quot;: &quot;PASS&quot;
+  },
+  &quot;helpsteer_cache_validation&quot;: {
+    &quot;rows&quot;: 21352,
+    &quot;columns&quot;: [
+      &quot;row_id&quot;,
+      &quot;helpfulness&quot;,
+      &quot;correctness&quot;,
+      &quot;coherence&quot;,
+      &quot;complexity&quot;,
+      &quot;verbosity&quot;,
+      &quot;official_split&quot;,
+      &quot;prompt_key&quot;,
+      &quot;role&quot;,
+      &quot;prompt_chars&quot;,
+      &quot;response_chars&quot;
+    ],
+    &quot;role_counts&quot;: {
+      &quot;pool&quot;: 18513,
+      &quot;test&quot;: 1038,
+      &quot;base_train&quot;: 801,
+      &quot;conformal&quot;: 500,
+      &quot;pilot&quot;: 500
+    },
+    &quot;embedding_shape&quot;: [
+      2839,
+      768
+    ],
+    &quot;embedding_dtype&quot;: &quot;float32&quot;,
+    &quot;pilot_prediction_rows&quot;: 500,
+    &quot;labels&quot;: {
+      &quot;flash&quot;: {
+        &quot;rows&quot;: 500,
+        &quot;status_counts&quot;: {
+          &quot;ok&quot;: 500
+        },
+        &quot;ratings_match_prediction_cache&quot;: true,
+        &quot;requested_models&quot;: [
+          &quot;deepseek-v4-flash&quot;
+        ],
+        &quot;served_models&quot;: [
+          &quot;deepseek-v4-flash&quot;
+        ]
+      },
+      &quot;pro&quot;: {
+        &quot;rows&quot;: 500,
+        &quot;status_counts&quot;: {
+          &quot;ok&quot;: 500
+        },
+        &quot;ratings_match_prediction_cache&quot;: true,
+        &quot;requested_models&quot;: [
+          &quot;deepseek-v4-pro&quot;
+        ],
+        &quot;served_models&quot;: [
+          &quot;deepseek-v4-pro&quot;
+        ]
+      }
+    },
+    &quot;unique_row_ids&quot;: true,
+    &quot;cached_joins_consistent&quot;: true,
+    &quot;prompt_keys_spanning_outer_roles&quot;: 0,
+    &quot;raw_text_and_provider_request_identifiers_absent_from_cache_schemas&quot;: true
+  },
+  &quot;packaging&quot;: {
+    &quot;command&quot;: &quot;conda run -n ml python -m pip wheel --no-deps --no-build-isolation --wheel-dir &lt;temporary-output&gt; .&quot;,
+    &quot;wheel_build&quot;: &quot;PASS&quot;,
+    &quot;wheel&quot;: &quot;synthetic_conformal-1.0.0-py3-none-any.whl&quot;,
+    &quot;distribution_scope&quot;: &quot;Git repository for full code, data and launcher; wheel validates the two source packages and console-entry-point metadata.&quot;,
+    &quot;fresh_full_environment_install&quot;: &quot;not performed&quot;
+  },
+  &quot;publication_checks&quot;: {
+    &quot;data_files_ignored_by_git&quot;: 0,
+    &quot;files_exceeding_100_MiB&quot;: 0,
+    &quot;largest_file&quot;: {
+      &quot;file&quot;: &quot;legacy/Datasets/WEC_Perth_49.csv&quot;,
+      &quot;bytes&quot;: 33660212
+    },
+    &quot;credential_or_private_path_pattern_findings&quot;: 0,
+    &quot;configured_secret_value_scan&quot;: &quot;No matches in Git-included candidate files; values are never recorded.&quot;,
+    &quot;cache_schemas&quot;: &quot;No raw text or provider request/response identifiers; array loading uses allow_pickle=False.&quot;,
+    &quot;scope_note&quot;: &quot;Signature and schema checks cannot prove absence of all possible secret formats. Runtime logs, caches, build directories, and environment files are excluded.&quot;
+  },
+  &quot;independent_review&quot;: {
+    &quot;status&quot;: &quot;PASS&quot;,
+    &quot;scope&quot;: &quot;Independent static review of source preservation, supported quickstart, data inclusion, licensing notices, private metadata and release claims, followed by a check of the generated verification JSON and standalone HTML.&quot;,
+    &quot;summary&quot;: &quot;No material publishing blockers found; all protected scientific files match the supplied artifact, all eight datasets are included, and plan/reference validators pass.&quot;,
+    &quot;material_findings&quot;: 0,
+    &quot;full_experiment_rerun&quot;: false
+  },
+  &quot;execution_notes&quot;: [
+    &quot;All recorded check commands completed successfully.&quot;,
+    &quot;Restricted macOS CPU-capability probes produced nonfatal PyArrow warnings during data/reference checks.&quot;,
+    &quot;The wheel build reported an unwritable pip cache and continued without using that cache.&quot;,
+    &quot;No research design was retuned; only release checks and the existing tests were run. The tests include small mathematical/neural regression checks.&quot;,
+    &quot;No fresh model rollout, LLM label, encoder feature, model-weight download, GPU run or complete benchmark execution was performed.&quot;
+  ],
+  &quot;scientific_limits&quot;: [
+    &quot;The supplied new coverage selectors do not consistently outperform fixed unit PPI; adverse and null results remain included.&quot;,
+    &quot;Random splits overlap. Paired bootstrap intervals are unadjusted and describe split variation, not independent population sampling.&quot;,
+    &quot;Diamonds retains 146 exact duplicate full records and 345 duplicate X rows; row separation is not entity independence.&quot;,
+    &quot;HelpSteer responses are clustered by prompt. Prompt separation of outer roles does not establish row-iid conformal validity.&quot;,
+    &quot;Historical HelpSteer neural fits and the recorded CPU reconstruction are not numerically identical.&quot;,
+    &quot;Civil Comments is historical source only; its input and label caches are not part of this release.&quot;,
+    &quot;Historical generation/report scripts may require their original full-text layout and optional dependencies. run.py is the supported supplied-cache entry point.&quot;
+  ],
+  &quot;handoff&quot;: {
+    &quot;study_identity&quot;: &quot;How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage&quot;,
+    &quot;release_identity&quot;: &quot;synthetic-conformal 1.0.0&quot;,
+    &quot;status&quot;: &quot;automated_release_checks_passed&quot;,
+    &quot;frozen_claim&quot;: &quot;The provided scientific implementation, designs, reference results and cached numerical inputs are preserved in the public release.&quot;,
+    &quot;key_counts&quot;: {
+      &quot;python_files_preserved&quot;: 101,
+      &quot;tabular_datasets&quot;: 8,
+      &quot;tabular_rows&quot;: 487676,
+      &quot;tests_passed&quot;: 17,
+      &quot;benchmark_tasks&quot;: 740,
+      &quot;benchmark_method_rows&quot;: 6900,
+      &quot;helpsteer_feature_rows&quot;: 2839,
+      &quot;helpsteer_feature_dimensions&quot;: 768
+    },
+    &quot;outcome_access&quot;: &quot;Only bundled numerical reference outcomes and release-check outputs were inspected. No new research outcome was generated.&quot;,
+    &quot;major_limitations&quot;: [
+      &quot;No full benchmark rerun&quot;,
+      &quot;Retained duplicate and prompt-clustering limitations&quot;,
+      &quot;Historical neural reconstruction differs numerically&quot;
+    ],
+    &quot;next_authorized_step&quot;: &quot;Publish the reviewed code and data as a new public GitHub repository.&quot;
+  }
+}</pre></details>
+<footer>Generated from completed release checks on 2026-09-27T03:44:47+00:00. The automated verification status is distinct from remote repository publication. This HTML has no external styles, scripts, fonts, media or sibling-file dependencies.</footer>
+</main></body></html>

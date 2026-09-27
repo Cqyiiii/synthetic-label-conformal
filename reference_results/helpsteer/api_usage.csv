@@ -1,0 +1,3 @@
+model,rows,prompt_tokens,cache_hit_tokens,cache_miss_tokens,completion_tokens,estimated_cost_usd,mean_latency_seconds,retries,served_models
+flash,500,367574,20608,346966,15030,0.0528413424,14.933229255174751,0,deepseek-v4-flash
+pro,500,367574,20480,347094,20986,0.16931795,21.46212697278708,0,deepseek-v4-pro

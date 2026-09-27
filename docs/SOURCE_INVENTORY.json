@@ -1,0 +1,454 @@
+[
+  {
+    "file": "src/synrcp/simulation.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/v11_neural.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/metrics.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/aggregate.py",
+    "category": "preserved engine exporter with v11 routing and condition-metadata repair"
+  },
+  {
+    "file": "src/synrcp/dgp.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/runner.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/system.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/neural.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/v11.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/config.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/conformal.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/models.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/io.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/__init__.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/synthetic_methods.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/real_data.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/followup.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp/cli.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp_v11/plan.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp_v11/registry.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "src/synrcp_v11/__init__.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "plans/v11_pool_size.jsonl",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "plans/v11_trusted_budget.jsonl",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "plans/v11_teacher_quality.jsonl",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "plans/v11_main.jsonl",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "plans/v11_ablation.jsonl",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "plans/all_tasks.jsonl",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/benchmark/v11_main.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/benchmark/v11_label_budget.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/benchmark/v11_teacher_quality.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/benchmark/v11_ablations.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/benchmark/v11_pool_size.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/theory/conformal_null.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/theory/signed_power.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/theory/calibration_density.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/theory/mechanism_2x2.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "configs/theory/paired_score_oracle.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "tests/test_v11_plan.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "tests/test_followup.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "tools/validate_theory_followup.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "tools/validate_frozen_plan.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/metrics.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/models.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/methods.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/main_semi.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/main_semi_oracle.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/data_utils.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/utils.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/trainers.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/losses.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/original_baselines/main.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/simulation.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/metrics.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/aggregate.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/dgp.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/runner.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/system.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/neural.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/config.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/conformal.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/models.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/io.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/__init__.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/synthetic_methods.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/real_data.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/audited_pipeline/synrcp/cli.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/metrics.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/models.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/methods.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/main_semi.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/main_semi_oracle.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/data_utils.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/utils.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/trainers.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/losses.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "legacy_baselines/main.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/evidence_scripts/build_v14_figures.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/evidence_scripts/validate_v13_results.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/evidence_scripts/validate_v14_results.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/evidence_scripts/validate_v16_evidence.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/evidence_scripts/build_v14_tables.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/evidence_scripts/validate_v15_results.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "reference_implementations/evidence_scripts/build_v13_tables.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/helpsteer/prepare_embeddings.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/helpsteer/prepare_data.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/helpsteer/validate_outputs.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/helpsteer/build_delivery_bundle.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/helpsteer/analyze_labels.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/helpsteer/run_downstream_pilot.py",
+    "category": "preserved numerical runner with explicit device CLI option"
+  },
+  {
+    "file": "llm/helpsteer/run_labels.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/helpsteer/make_notebook.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/civil_comments/analyze_pilot.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/civil_comments/prepare_data.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/civil_comments/analyze_prompt_gate.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/civil_comments/prepare_prompt_gate.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/civil_comments/run_prompt_gate.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/civil_comments/build_prompt_gate_notebook.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/civil_comments/run_downstream_pilot.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "llm/civil_comments/run_labels.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/postconformal_selection.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/training.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/run_tabular.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/run_helpsteer.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/run_statistics.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/analyze_results.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/audit_data.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/make_figures.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/common.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/config.json",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/requirements.txt",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/tests/test_selection.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/tests/test_experiments.py",
+    "category": "preserved source or frozen configuration"
+  },
+  {
+    "file": "supplement/display_tables.py",
+    "category": "all six numerical display-table transformations extracted from original report builder"
+  }
+]

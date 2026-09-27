@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthetic-conformal"
+version = "1.0.0"
+description = "Reproducible experiments for synthetic-assisted conformal prediction"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Qianyi Chen"}, {name = "Bo Li"}]
+requires-python = ">=3.11"
+
+[project.urls]
+Repository = "https://github.com/Cqyiiii/synthetic-conformal"
+
+[project.scripts]
+synrcp = "synrcp.cli:main"
+synrcp-theory-followup = "synrcp.followup:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "supplement"]
+testpaths = ["tests", "supplement/tests"]
+addopts = "-ra"

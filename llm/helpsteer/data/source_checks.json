@@ -1,0 +1,12 @@
+{
+  "role_counts": {
+    "pool": 18513,
+    "test": 1038,
+    "base_train": 801,
+    "conformal": 500,
+    "pilot": 500
+  },
+  "cross_role_prompt_overlap": 0,
+  "missing_required_values": 0,
+  "out_of_range_label_values": 0
+}

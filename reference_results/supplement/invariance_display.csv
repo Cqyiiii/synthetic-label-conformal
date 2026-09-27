@@ -1,0 +1,5 @@
+dataset,contrasts,raw_selection_changed,raw_order_changed,max_calibrated_pinball_error,max_beta0_error,max_beta1_error,max_deployed_threshold_error
+SGEMM,60,58,60,2.775557561562892e-17,0.0,0.0,4.440892098500626e-16
+Transcoding,60,50,59,2.775557561562892e-17,0.0,0.0,8.881784197001252e-16
+bike,60,49,57,2.775557561562892e-17,0.0,0.0,2.220446049250313e-16
+diamond,60,48,59,1.3877787807814457e-17,0.0,0.0,4.440892098500626e-16

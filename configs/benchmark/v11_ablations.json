@@ -1,0 +1,32 @@
+{
+  "name": "v11_ablations",
+  "experiment": "v11_ablations",
+  "version": 11,
+  "output_root": "outputs/v11_ablations",
+  "threads": 1,
+  "expected_tasks": 100,
+  "fixed": {
+    "data_dir": "legacy/Datasets",
+    "teacher_strength": "moderate",
+    "synthetic_prop": 0.30,
+    "base_prop": 0.02,
+    "conformal_prop": 0.01,
+    "augment_weight": 0.5,
+    "hidden": 128,
+    "mean_epochs": 100,
+    "threshold_epochs": 100,
+    "cqr_epochs": 200,
+    "cv_epochs": 40,
+    "methods": [
+      "RCP",
+      "RCP-Aug",
+      "RCP-Aug-Permuted",
+      "RCP-Extra",
+      "RCP-Pool"
+    ]
+  },
+  "grid": {
+    "dataset": ["bike", "diamond", "naval", "SGEMM", "Transcoding"],
+    "seed": {"range": [0, 20]}
+  }
+}

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite this software, its accompanying paper, and the original dataset sources."
+title: "How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage"
+type: software
+authors:
+  - family-names: Chen
+    given-names: Qianyi
+    affiliation: "School of Economics and Management, Tsinghua University"
+  - family-names: Li
+    given-names: Bo
+    affiliation: "School of Economics and Management, Tsinghua University"
+repository-code: "https://github.com/Cqyiiii/synthetic-conformal"
+url: "https://github.com/Cqyiiii/synthetic-conformal"
+license: MIT
+version: 1.0.0
+date-released: 2026-09-27
+keywords:
+  - conformal prediction
+  - synthetic labels
+  - prediction-powered learning
+  - conditional coverage

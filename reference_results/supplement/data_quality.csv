@@ -1,0 +1,5 @@
+dataset,original_rows,used_rows,dataset_sample_seed,sgemm_cap,x_columns,y_columns,exact_joint_duplicate_rows,duplicate_x_rows,nonfinite_x,nonfinite_y,new_exclusions,handling
+bike,17379,17379,2026,50000,13,1,0,0,0,0,0,V18 loader unchanged; SGEMM fixed 50k cap; role-specific preprocessing
+diamond,53940,53940,2026,50000,23,1,146,345,0,0,0,V18 loader unchanged; SGEMM fixed 50k cap; role-specific preprocessing
+SGEMM,241600,50000,2026,50000,14,4,0,0,0,0,0,V18 loader unchanged; SGEMM fixed 50k cap; role-specific preprocessing
+Transcoding,68784,68784,2026,50000,23,2,0,81,0,0,0,V18 loader unchanged; SGEMM fixed 50k cap; role-specific preprocessing

@@ -1,0 +1,35 @@
+{
+  "name": "v11_main",
+  "experiment": "v11_main",
+  "version": 11,
+  "output_root": "outputs/v11_main",
+  "threads": 1,
+  "expected_tasks": 240,
+  "fixed": {
+    "data_dir": "legacy/Datasets",
+    "teacher_strength": "moderate",
+    "synthetic_prop": 0.30,
+    "base_prop": 0.02,
+    "conformal_prop": 0.01,
+    "augment_weight": 0.5,
+    "hidden": 128,
+    "mean_epochs": 100,
+    "threshold_epochs": 100,
+    "cqr_epochs": 200,
+    "cv_epochs": 40,
+    "lambda_grid": [0.0, 0.25, 0.5, 0.75, 1.0]
+  },
+  "grid": {
+    "dataset": [
+      "bike",
+      "diamond",
+      "gas_turbine",
+      "naval",
+      "SGEMM",
+      "superconduct",
+      "Transcoding",
+      "WEC"
+    ],
+    "seed": {"range": [0, 30]}
+  }
+}
