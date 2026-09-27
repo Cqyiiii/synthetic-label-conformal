@@ -11,8 +11,8 @@ The scientific objectives, candidate sets, random seeds, and numerical reference
 Use Python 3.11 with the versions in `requirements.txt`. A GPU is not required. Clone the repository and run:
 
 ```bash
-git clone https://github.com/Cqyiiii/synthetic-conformal.git
-cd synthetic-conformal
+git clone https://github.com/Cqyiiii/synthetic-label-conformal.git
+cd synthetic-label-conformal
 python -m pip install -r requirements.txt
 python -m pytest -q
 python tools/prepare_tabular_data.py --from-local legacy/Datasets
@@ -119,7 +119,7 @@ If you use this work, please cite the paper and the original dataset sources. Un
   title = {How Synthetic Labels Improve Conformal Prediction: A Perspective on Conditional Coverage},
   author = {Chen, Qianyi and Li, Bo},
   year = {2026},
-  url = {https://github.com/Cqyiiii/synthetic-conformal}
+  url = {https://github.com/Cqyiiii/synthetic-label-conformal}
 }
 ```
 

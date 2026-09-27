@@ -12,7 +12,7 @@ authors = [{name = "Qianyi Chen"}, {name = "Bo Li"}]
 requires-python = ">=3.11"
 
 [project.urls]
-Repository = "https://github.com/Cqyiiii/synthetic-conformal"
+Repository = "https://github.com/Cqyiiii/synthetic-label-conformal"
 
 [project.scripts]
 synrcp = "synrcp.cli:main"

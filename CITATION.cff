@@ -9,8 +9,8 @@ authors:
   - family-names: Li
     given-names: Bo
     affiliation: "School of Economics and Management, Tsinghua University"
-repository-code: "https://github.com/Cqyiiii/synthetic-conformal"
-url: "https://github.com/Cqyiiii/synthetic-conformal"
+repository-code: "https://github.com/Cqyiiii/synthetic-label-conformal"
+url: "https://github.com/Cqyiiii/synthetic-label-conformal"
 license: MIT
 version: 1.0.0
 date-released: 2026-09-27
